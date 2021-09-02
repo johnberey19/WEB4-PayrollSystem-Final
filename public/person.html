@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="sass/humanResource.css">
+    <script defer src="./js/vue.js"></script>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="navClass">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="account.html">ADMINISTRATOR</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="person.html">EMPLOYEE</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="attendance.html">ATTENDANCE</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="accounting.html">ACCOUNTING</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">REPORTS</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="navBody">
+        <div class="navHead">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-primary" type="submit">Search</button>
+
+                  </div>
+                </div>
+              </nav>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" v-on:click="employee.refreshPosDep" data-target="#exampleModal">
+         Add Person
+        </button>
+        <div class="navContainer">
+          <table class="table table-striped table-light table-sm" style="color: black;">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Position</th>
+                <th scope="col">Department</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              <template v-if="">
+                <tr v-for="" >
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+                  <td>{{item}}</td>
+                  <td>
+                    <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-danger">REMOVE</button>
+                  </div>
+                  </td>
+                </tr>
+  
+              </template>
+              <template v-else>
+                <td>No Record Found</td>
+              </template>
+
+            </tbody>
+          </table>
+        </div>
+
+        
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" id="btnAdd">Add New Person</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tabloid">
+          <tbody>
+            <tr>
+              <td><input type="text" v-model="lname" class="txtbox" placeholder="Lastname"></td>
+            </tr>
+            <tr>
+              <td><input type="text" v-model="fname" class="txtbox" placeholder="Firstname"></td>
+            </tr>
+            <tr>
+              <td><input type="text" v-model="mname" class="txtbox" placeholder="Middle Name"></td>
+            </tr>
+            <tr>
+              <td>Birthdate</td>
+              <td><input type="datetime-local" v-model="bdate" class="txtbox" ></td>
+            </tr>
+            <tr>
+              <td><input type="text" v-model="address" class="txtbox" placeholder="Address"></td>
+            </tr>
+            <tr>
+              <td><input type="text" v-model="contact" class="txtbox" placeholder="Contact No"></td>
+            </tr>
+            <template v-if="listPosition.length">
+              <select  v-for="item in listPosition" ></select>
+                <option>{{item}}</option>
+
+            </template>
+            <template v-else>
+              <select>
+                <option>no records</option>
+              </select>
+            </template>
+            <template v-if="listDepartment.length">
+              <select v-for="department in listDepartment">
+                <option>{{department}}</option>
+              </select>
+            </template>
+            <template v-else>
+              <select>
+                <option>no data</option>
+              </select>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script defer src="./firebaseConfig.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="bootstrap/4/js/popper.min.js"></script>
+    <script src="bootstrap/4/js/bootstrap.min.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/Person_Controller.js"></script>
+</body>
+
+</html>

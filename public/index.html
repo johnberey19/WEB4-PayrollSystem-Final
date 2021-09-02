@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <link rel="stylesheet" href="fontawesome4/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="bootstrap/4/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="sass/index.css">
+  <script defer src="./js/vue.js"></script>
+  </head>
+  <body>
+    <div class="container " id="divIndex">
+      <form id="loginForm" method="post">
+        <p class="" id="lblLogin">Payroll System
+        </p>
+        <input id="txtID" name="text1" type="text" class="form-control" placeholder="ID Number">
+        <input id="txtPass" name="text1" type="text" class="form-control" placeholder="Password">
+        <div class="container" id="divIndexbutton">
+          <button class="btn" id="btnAdd">Forgot Password</button>
+          <button class="btn" id="btnLogin" >Log In</button>
+          <a href="account.html">PASOK</a>
+        </div>
+      </form>
+    </div>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script defer src="./firebaseConfig.js"></script>
+    <script src="bootstrap/4/js/popper.min.js"></script>
+    <script src="bootstrap/4/js/bootstrap.min.js"></script>
+  </body></html>
